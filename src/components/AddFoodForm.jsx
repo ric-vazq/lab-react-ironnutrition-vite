@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { Divider, Input, Button } from "antd";
 
 function AddFoodForm(props) {
   const { addFood } = props;
@@ -27,45 +28,38 @@ function AddFoodForm(props) {
   };
 
   return (
-    <div>
-      <h4>Add a Food</h4>
+    <form onSubmit={handleSubmit}>
+      <Divider>Add a Food</Divider>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="">Name: </label>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleNameInput}
-        />
+      <label htmlFor="">Name: </label>
+      <Input type="text" name="name" value={name} onChange={handleNameInput} />
 
-        <label htmlFor="">Image: </label>
-        <input
-          type="text"
-          name="image"
-          value={image}
-          onChange={handleImageInput}
-        />
+      <label htmlFor="">Image: </label>
+      <Input
+        type="text"
+        name="image"
+        value={image}
+        onChange={handleImageInput}
+      />
 
-        <label htmlFor="">Calories: </label>
-        <input
-          type="number"
-          name="calories"
-          value={calories}
-          onChange={handleCaloriesInput}
-        />
+      <label htmlFor="">Calories: </label>
+      <Input
+        type="number"
+        name="calories"
+        value={calories}
+        onChange={handleCaloriesInput}
+      />
 
-        <label htmlFor="">Servings: </label>
-        <input
-          type="number"
-          name="servings"
-          value={servings}
-          onChange={handleServingsInput}
-        />
+      <label htmlFor="">Servings: </label>
+      <Input
+        type="number"
+        name="servings"
+        value={servings}
+        onChange={handleServingsInput}
+      />
 
-        <button type="submit">Create</button>
-      </form>
-    </div>
+      <Button type="submit">Create</Button>
+    </form>
   );
 }
 

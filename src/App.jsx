@@ -1,33 +1,14 @@
-import "./App.css";
-import foods from "./foods.json";
-import FoodBox from "./components/FoodBox";
-import { useState } from "react";
-import AddFoodForm from "./components/AddFoodForm";
+import FoodList from "./components/FoodList";
+import { Row, Divider } from "antd";
 
 function App() {
-  const [foodsData, setfoodsData] = useState(foods);
-
-  const deleteFood = (id) => {
-    let filtArray = foodsData.filter((food) => {
-      return food.id !== id;
-    });
-    setfoodsData(filtArray);
-  };
-
-  const addNewFood = (newFood) => {
-    const updatedFoodsData = [...foodsData, newFood];
-    setfoodsData(updatedFoodsData);
-  };
-
   return (
     <div className="App">
-      <h1>LAB | React IronNutrition</h1>
+      <Divider>Food List</Divider>
 
-      {foodsData.map((food) => {
-        return <FoodBox food={food} key={food.id} deleteFood={deleteFood} />;
-      })}
-
-      <AddFoodForm addFood={addNewFood}/>
+      <Row style={{ width: "100%", justifyContent: "center"}}>
+        <FoodList />
+      </Row>
     </div>
   );
 }
